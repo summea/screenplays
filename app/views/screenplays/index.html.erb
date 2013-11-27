@@ -1,0 +1,27 @@
+<h1>Listing screenplays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @screenplays.each do |screenplay| %>
+      <tr>
+        <td><%= screenplay.name %></td>
+        <td><%= link_to 'Show', screenplay %></td>
+        <td><%= link_to 'Edit', edit_screenplay_path(screenplay) %></td>
+        <td><%= link_to 'Destroy', screenplay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Screenplay', new_screenplay_path %>

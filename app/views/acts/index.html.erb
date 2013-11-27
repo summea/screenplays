@@ -1,0 +1,27 @@
+<h1>Listing acts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acts.each do |act| %>
+      <tr>
+        <td><%= act.name %></td>
+        <td><%= link_to 'Show', act %></td>
+        <td><%= link_to 'Edit', edit_act_path(act) %></td>
+        <td><%= link_to 'Destroy', act, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Act', new_act_path %>

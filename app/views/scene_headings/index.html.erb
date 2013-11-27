@@ -1,0 +1,29 @@
+<h1>Listing scene_headings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scene_headings.each do |scene_heading| %>
+      <tr>
+        <td><%= scene_heading.location %></td>
+        <td><%= scene_heading.time %></td>
+        <td><%= link_to 'Show', scene_heading %></td>
+        <td><%= link_to 'Edit', edit_scene_heading_path(scene_heading) %></td>
+        <td><%= link_to 'Destroy', scene_heading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scene heading', new_scene_heading_path %>

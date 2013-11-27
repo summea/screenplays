@@ -1,0 +1,21 @@
+<%= form_for(@action_block) do |f| %>
+  <% if @action_block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@action_block.errors.count, "error") %> prohibited this action_block from being saved:</h2>
+
+      <ul>
+      <% @action_block.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :scene_description %><br>
+    <%= f.text_field :scene_description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

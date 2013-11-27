@@ -1,0 +1,25 @@
+<%= form_for(@scene_heading) do |f| %>
+  <% if @scene_heading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scene_heading.errors.count, "error") %> prohibited this scene_heading from being saved:</h2>
+
+      <ul>
+      <% @scene_heading.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

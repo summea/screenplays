@@ -1,0 +1,23 @@
+<%= form_for(@act) do |f| %>
+  <% if @act.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@act.errors.count, "error") %> prohibited this act from being saved:</h2>
+
+      <ul>
+      <% @act.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br />
+    <%= f.label :screenplay_id %><br />
+    <%= select(:screenplays, :screenplay_id, Screenplay.all.collect {|p| [ p.name ] }) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

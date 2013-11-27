@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @scene_heading.location %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @scene_heading.time %>
+</p>
+
+<%= link_to 'Edit', edit_scene_heading_path(@scene_heading) %> |
+<%= link_to 'Back', scene_headings_path %>

@@ -1,0 +1,27 @@
+<h1>Listing dialogues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dialogues.each do |dialogue| %>
+      <tr>
+        <td><%= dialogue.body %></td>
+        <td><%= link_to 'Show', dialogue %></td>
+        <td><%= link_to 'Edit', edit_dialogue_path(dialogue) %></td>
+        <td><%= link_to 'Destroy', dialogue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dialogue', new_dialogue_path %>
