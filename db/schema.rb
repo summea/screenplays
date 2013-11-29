@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126201035) do
+ActiveRecord::Schema.define(version: 20131129034718) do
 
   create_table "action_blocks", force: true do |t|
     t.string   "scene_description"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131126201035) do
     t.integer  "block_type_id"
     t.text     "body"
     t.integer  "screenplay_id"
-    t.integer  "order_value"
+    t.integer  "position"
   end
 
   create_table "characters", force: true do |t|

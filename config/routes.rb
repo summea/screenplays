@@ -1,8 +1,12 @@
 Screenplays::Application.routes.draw do
   resources :block_types
 
-  resources :blocks
-
+  resources :blocks do
+    collection do 
+      post 'sort'
+    end 
+  end 
+  
   resources :transitions
 
   resources :scene_headings

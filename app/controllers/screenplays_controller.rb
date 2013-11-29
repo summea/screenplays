@@ -10,6 +10,9 @@ class ScreenplaysController < ApplicationController
   # GET /screenplays/1
   # GET /screenplays/1.json
   def show
+    @blocks = Block.where("screenplay_id = ?", params[:id]).order(:position)
+    @block_types = BlockType.all().order(:id)
+    @block = Block.new
   end
 
   # GET /screenplays/new

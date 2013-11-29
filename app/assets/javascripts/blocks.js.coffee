@@ -3,10 +3,22 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ($) ->
-  $('#all-blocks').sortable();
+  `
+  $('#all-blocks').sortable({
+    axis: 'y',
+    scroll: true,
+    update: function(){
+      $.ajax({
+        url: '/blocks/sort',
+        type: 'post',
+        data: $('#all-blocks').sortable('serialize'),
+        dataType: 'script',
+        complete: function(request){
+          $('#all-blocks').effect('highlight');
+        }
+      });
+    }
+  });
+  `
   
   $('.best_in_place').best_in_place();
-  
-  $('.add-block').click ->
-    $('#all-blocks').append('hi');
-    return false;

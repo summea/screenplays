@@ -1,11 +1,9 @@
-<h1>Listing screenplays</h1>
+<h1>Screenplays</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -13,10 +11,10 @@
   <tbody>
     <% @screenplays.each do |screenplay| %>
       <tr>
-        <td><%= screenplay.name %></td>
-        <td><%= link_to 'Show', screenplay %></td>
-        <td><%= link_to 'Edit', edit_screenplay_path(screenplay) %></td>
-        <td><%= link_to 'Destroy', screenplay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to screenplay.name, screenplay %></td>
+        <td><%= link_to 'Show', screenplay %> |
+            <%= link_to 'Details', edit_screenplay_path(screenplay) %> |
+            <%= link_to 'Delete', screenplay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

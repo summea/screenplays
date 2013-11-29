@@ -13,3 +13,8 @@
  *= require jquery.ui.all
  *= require bootstrap
  */
+
+.textarea-normal {
+  width:500px;
+  height:100px;
+}

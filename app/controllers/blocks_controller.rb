@@ -4,8 +4,9 @@ class BlocksController < ApplicationController
   # GET /blocks
   # GET /blocks.json
   def index
-    @blocks = Block.includes(:block_type).all()
+    @blocks = Block.order(:position)
     @block_types = BlockType.all().order(:id)
+    @block = Block.new
   end
 
   # GET /blocks/1
@@ -26,10 +27,15 @@ class BlocksController < ApplicationController
   # POST /blocks.json
   def create
     @block = Block.new(block_params)
+    @block_types = BlockType.all().order('id DESC')
+    
+    last_block = Block.order('position DESC').limit(1).pluck(:position)
+    @block.position = last_block[0] + 1
 
     respond_to do |format|
       if @block.save
         format.html { redirect_to @block, notice: 'Block was successfully created.' }
+        format.js {}
         format.json { render action: 'show', status: :created, location: @block }
       else
         format.html { render action: 'new' }
@@ -62,6 +68,17 @@ class BlocksController < ApplicationController
     end
   end
 
+  # POST /blocks
+  # POST /blocks.json
+  def sort
+    @blocks = Block.all
+    @blocks.each do |block|
+      block.position = params['block'].index(block.id.to_s) + 1
+      block.save
+    end
+    render :nothing => true
+  end
+    
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_block
@@ -70,6 +87,6 @@ class BlocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def block_params
-      params[:block].permit(:screenplay_id, :block_type_id, :body, :order_value)
+      params[:block].permit(:screenplay_id, :block_type_id, :body, :position)
     end
 end
