@@ -1,9 +1,7 @@
 <li class="ui-state-default">
   <div style="float:right;">
-    <%= link_to 'Show', block %> |
-    <%= link_to 'Edit', edit_block_path(block) %> |
-    <%= link_to 'Destroy', block, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>    
+    <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>   
   <b><%= best_in_place block, :block_type_id, :type => :select, :collection => @block_types.map { |p| [p.id, p.name] } %></b><br />
   <%= best_in_place block, :body, :type => :textarea %>
 </li>

@@ -15,7 +15,7 @@
   <%= f.label :block_type_id %><br>
   <%= f.select(:block_type_id, BlockType.all.collect {|p| [ p.name, p.id ] }) %><br>
   <%= f.label :body %><br>
-  <%= f.text_area :body, :class => 'textarea-normal' %><br
+  <%= f.text_area :body, :class => 'textarea-normal' %><br>
   <%= f.hidden_field :screenplay_id, :value => params[:id] %><br>
   <%= f.hidden_field :position %><br>
   <%= f.submit 'Save', :class => 'btn' %>
