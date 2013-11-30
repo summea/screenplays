@@ -21,9 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
+    <%= f.select :gender, ['Female', 'Male']  %>
+  </div><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save", :class => "btn" %>
   </div>
 <% end %>

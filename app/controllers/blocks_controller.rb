@@ -7,6 +7,7 @@ class BlocksController < ApplicationController
     @blocks = Block.order(:position)
     @block_types = BlockType.all().order(:id)
     @block = Block.new
+    @characters = Character.all().order(:name)
   end
 
   # GET /blocks/1
@@ -28,6 +29,7 @@ class BlocksController < ApplicationController
   def create
     @block = Block.new(block_params)
     @block_types = BlockType.all().order('id DESC')
+    @characters = Character.all().order(:name)
     
     last_block = Block.order('position DESC').limit(1).pluck(:position)
     @block.position = last_block[0] + 1
@@ -71,9 +73,9 @@ class BlocksController < ApplicationController
   # POST /blocks
   # POST /blocks.json
   def sort
-    @blocks = Block.all
+    @blocks = Block.where(:screenplay_id => params[:id])
     @blocks.each do |block|
-      block.position = params['block'].index(block.id.to_s) + 1
+      block.position = params['block'].index(block.id.to_s)
       block.save
     end
     render :nothing => true
@@ -87,6 +89,6 @@ class BlocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def block_params
-      params[:block].permit(:screenplay_id, :block_type_id, :body, :position)
+      params[:block].permit(:screenplay_id, :block_type_id, :body, :position, :character_id)
     end
 end

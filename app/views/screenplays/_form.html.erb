@@ -13,11 +13,9 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %><br />
-    <%= f.label :screenplay_id %><br />
-    <%= select(:acts, :act_id, Act.all.collect {|p| [ p.name ] }) %>
-  </div>
+    <%= f.text_field :name %><br>
+  </div><br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', :class => 'btn' %>
   </div>
 <% end %>

@@ -13,6 +13,17 @@ class ScreenplaysController < ApplicationController
     @blocks = Block.where("screenplay_id = ?", params[:id]).order(:position)
     @block_types = BlockType.all().order(:id)
     @block = Block.new
+    @characters = Character.all().order(:name)
+  end
+  
+  # GET /screenplays/export/1
+  # GET /screenplays/export/1.json
+  def export
+    @blocks = Block.where("screenplay_id = ?", params[:id]).order(:position)
+    @block_types = BlockType.all().order(:id)
+    @block = Block.new
+    @characters = Character.all().order(:name)
+    set_screenplay
   end
 
   # GET /screenplays/new

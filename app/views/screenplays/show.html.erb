@@ -5,18 +5,24 @@
     <div style="float:right;">
       <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>    
-    <b><%= best_in_place block, :block_type_id, :type => :select, :collection => @block_types.map { |p| [p.id, p.name] } %></b><br />
+    <b><%= best_in_place block, :block_type_id, :type => :select, :collection => @block_types.map { |p| [p.id, p.name] } %></b>
+    &nbsp;&nbsp;&nbsp;&lt;<%= best_in_place block, :character_id, :type => :select, :collection => [[0, ""]] + @characters.map { |p| [p.id, p.name] } %>&gt;<br />
     <%= best_in_place block, :body, :type => :textarea %>
   </li>
 <% end %>
 </ul><br>
 
+<h3>Add Block</h3>
 <%= form_for(@block, remote: true) do |f| %>
   <%= f.label :block_type_id %><br>
   <%= f.select(:block_type_id, BlockType.all.collect {|p| [ p.name, p.id ] }) %><br>
+  <%= f.label :character_id %><br>
+  <%= f.select(:character_id, Character.all.collect {|p| [ p.name, p.id ] }, :include_blank => true) %><br>
   <%= f.label :body %><br>
   <%= f.text_area :body, :class => 'textarea-normal' %><br>
   <%= f.hidden_field :screenplay_id, :value => params[:id] %><br>
   <%= f.hidden_field :position %><br>
   <%= f.submit 'Save', :class => 'btn' %>
 <% end %>
+
+<input type="hidden" id="current_screenplay" value="<%= @screenplay.id %>" />

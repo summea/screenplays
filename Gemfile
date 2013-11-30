@@ -46,3 +46,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'best_in_place', :git => 'https://github.com/bernat/best_in_place.git'
+gem 'devise'

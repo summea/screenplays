@@ -1,0 +1,10 @@
+<h1><%= @screenplay.name %></h1>
+<ul id="export-blocks">  
+<% @blocks.each do |block| %>
+  <li id="block_<%= block.id %>">   
+    <b><%= @block_types[block.block_type_id].name %></b>
+    &nbsp;&nbsp;&nbsp;&lt;<%= @characters[block.character_id].name %>&gt;<br />
+    <%= block.body %>
+  </li>
+<% end %>
+</ul><br>

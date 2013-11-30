@@ -1,9 +1,13 @@
 Screenplays::Application.routes.draw do
+  devise_for :users
+  get "welcome/index"
+  get "home/welcome"
   resources :block_types
 
   resources :blocks do
     collection do 
       post 'sort'
+      post 'sort/:id' => 'blocks#sort'
     end 
   end 
   
@@ -19,15 +23,18 @@ Screenplays::Application.routes.draw do
 
   resources :acts
 
-  resources :screenplays
-
-  get "screenplays/index"
-  get "acts/index"
+  resources :screenplays do
+    collection do 
+      get 'export/:id' => 'screenplays#export'
+    end
+  end
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

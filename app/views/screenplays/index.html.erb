@@ -12,7 +12,8 @@
     <% @screenplays.each do |screenplay| %>
       <tr>
         <td><%= link_to screenplay.name, screenplay %></td>
-        <td><%= link_to 'Show', screenplay %> |
+        <td><%= link_to 'Edit View', screenplay %> |
+            <%= link_to 'Print View', screenplay %> |
             <%= link_to 'Details', edit_screenplay_path(screenplay) %> |
             <%= link_to 'Delete', screenplay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -22,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Screenplay', new_screenplay_path %>
+<%= button_to 'New Screenplay', new_screenplay_path, :class => 'btn', :method => 'get' %>
