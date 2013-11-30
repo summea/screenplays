@@ -75,9 +75,11 @@ class BlocksController < ApplicationController
   # POST /blocks.json
   def sort
     @blocks = Block.where(:screenplay_id => params[:id])
-    @blocks.each do |block|
-      block.position = params['block'].index(block.id.to_s)
-      block.save
+    ActiveRecord::Base.transaction do
+      @blocks.each do |block|
+        block.position = params['block'].index(block.id.to_s)
+        block.save
+      end
     end
     render :nothing => true
   end
