@@ -13,7 +13,6 @@ jQuery ($) ->
         data: $('#all-blocks').sortable('serialize'),
         dataType: 'script',
         complete: function(request){
-    alert($('#current_screenplay').val());
           $('#all-blocks').effect('highlight');
         }
       });

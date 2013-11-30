@@ -1,10 +1,21 @@
 <h1><%= @screenplay.name %></h1>
 <ul id="export-blocks">  
 <% @blocks.each do |block| %>
-  <li id="block_<%= block.id %>">   
-    <b><%= @block_types[block.block_type_id].name %></b>
-    &nbsp;&nbsp;&nbsp;&lt;<%= @characters[block.character_id].name %>&gt;<br />
-    <%= block.body %>
+  <li id="block_<%= block.id %>">
+    <% if @block_types[block.block_type_id-1].name == "Scene Heading" %>
+      <%= block.body.upcase %>
+    <% elsif @block_types[block.block_type_id-1].name == "Action Block" %>
+      <%= block.body %>
+    <% elsif @block_types[block.block_type_id-1].name == "Dialogue" %>
+      <% if block.character_id.to_i > 0 %>
+        <div class="align-center"><%= @characters[block.character_id-1].name.upcase %></div>
+      <% end %>
+      <div class="align-center-box"><%= block.body %></div>
+    <% elsif @block_types[block.block_type_id-1].name == "Transition" %>
+      <div class="align-right"><%= block.body.upcase %></div>
+    <% elsif @block_types[block.block_type_id-1].name == "Fade" %>
+      <div class="align-left"><%= block.body.upcase %></div>
+    <% end %>
   </li>
 <% end %>
 </ul><br>

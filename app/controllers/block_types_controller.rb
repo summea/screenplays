@@ -1,5 +1,6 @@
 class BlockTypesController < ApplicationController
   before_action :set_block_type, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /block_types
   # GET /block_types.json

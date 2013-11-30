@@ -13,7 +13,7 @@
       <tr>
         <td><%= link_to screenplay.name, screenplay %></td>
         <td><%= link_to 'Edit View', screenplay %> |
-            <%= link_to 'Print View', screenplay %> |
+            <%= link_to 'Print View', :controller => 'screenplays', :action => 'export', :id => screenplay.id %> |
             <%= link_to 'Details', edit_screenplay_path(screenplay) %> |
             <%= link_to 'Delete', screenplay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

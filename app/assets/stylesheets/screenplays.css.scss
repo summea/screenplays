@@ -1,3 +1,19 @@
 // Place all the styles related to the Screenplays controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#export-blocks {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  width:70%;
+  font-family: "Courier New", courier, monospace;
+}
+
+#export-blocks li {
+  margin-bottom:15px;
+}
+
+.align-left { text-align:left; }
+.align-center { text-align:center; }
+.align-right { text-align:right; }
+.align-center-box { text-align:left; margin-left:auto; margin-right:auto; width:30%; }

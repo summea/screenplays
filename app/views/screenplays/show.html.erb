@@ -6,7 +6,7 @@
       <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>    
     <b><%= best_in_place block, :block_type_id, :type => :select, :collection => @block_types.map { |p| [p.id, p.name] } %></b>
-    &nbsp;&nbsp;&nbsp;&lt;<%= best_in_place block, :character_id, :type => :select, :collection => [[0, ""]] + @characters.map { |p| [p.id, p.name] } %>&gt;<br />
+    &nbsp;&nbsp;&nbsp;&lt;<%= best_in_place block, :character_id, :type => :select, :collection => [[0, "-"]] + @characters.map { |p| [p.id, p.name] } %>&gt;<br />
     <%= best_in_place block, :body, :type => :textarea %>
   </li>
 <% end %>

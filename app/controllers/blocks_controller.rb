@@ -1,5 +1,6 @@
 class BlocksController < ApplicationController
   before_action :set_block, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /blocks
   # GET /blocks.json

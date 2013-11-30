@@ -1,5 +1,6 @@
 class ScreenplaysController < ApplicationController
   before_action :set_screenplay, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /screenplays
   # GET /screenplays.json
@@ -22,7 +23,7 @@ class ScreenplaysController < ApplicationController
     @blocks = Block.where("screenplay_id = ?", params[:id]).order(:position)
     @block_types = BlockType.all().order(:id)
     @block = Block.new
-    @characters = Character.all().order(:name)
+    @characters = Character.all().order(:id)
     set_screenplay
   end
 
