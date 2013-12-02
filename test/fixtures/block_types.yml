@@ -1,7 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  name: Scene Heading
 
 two:
-  name: MyString
+  name: Action Block
+  
+three:
+  name: Dialogue
+  
+four:
+  name: Transition
+
+five:
+  name: Fade

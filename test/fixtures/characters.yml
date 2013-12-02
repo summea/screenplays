@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  alias: MyString
-  gender: MyString
+  name: David
+  alias: Davey
+  gender: Male
 
 two:
-  name: MyString
-  alias: MyString
-  gender: MyString
+  name: Jonathan
+  alias:
+  gender: Male

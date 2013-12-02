@@ -13,20 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131130203133) do
 
-  create_table "action_blocks", force: true do |t|
-    t.string   "scene_description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "act_id"
-  end
-
-  create_table "acts", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "screenplay_id"
-  end
-
   create_table "block_types", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -52,31 +38,10 @@ ActiveRecord::Schema.define(version: 20131130203133) do
     t.datetime "updated_at"
   end
 
-  create_table "dialogues", force: true do |t|
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "act_id"
-  end
-
-  create_table "scene_headings", force: true do |t|
-    t.string   "location"
-    t.string   "time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "act_id"
-  end
-
   create_table "screenplays", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "transitions", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "act_id"
   end
 
   create_table "users", force: true do |t|

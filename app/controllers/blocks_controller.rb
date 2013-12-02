@@ -33,7 +33,7 @@ class BlocksController < ApplicationController
     @characters = Character.all().order(:name)
     
     last_block = Block.order('position DESC').limit(1).pluck(:position)
-    @block.position = last_block[0] + 1
+    @block.position = last_block[0].to_i + 1
 
     respond_to do |format|
       if @block.save

@@ -4,8 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
+one:
+  body: First block.
+  block_type_id: one
 #
-two: {}
-#  column: value
+two:
+  body: Second block.
+  block_type_id: two
+#
+three:
+  body: Third block.
+  block_type_id: three
