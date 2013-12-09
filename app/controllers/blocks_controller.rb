@@ -66,7 +66,7 @@ class BlocksController < ApplicationController
   def destroy
     @block.destroy
     respond_to do |format|
-      format.html { redirect_to blocks_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

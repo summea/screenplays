@@ -29,7 +29,7 @@ class BlockTypesController < ApplicationController
 
     respond_to do |format|
       if @block_type.save
-        format.html { redirect_to @block_type, notice: 'Block type was successfully created.' }
+        format.html { redirect_to block_types_url, notice: 'Block type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @block_type }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class BlockTypesController < ApplicationController
   def update
     respond_to do |format|
       if @block_type.update(block_type_params)
-        format.html { redirect_to @block_type, notice: 'Block type was successfully updated.' }
+        format.html { redirect_to block_types_url, notice: 'Block type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

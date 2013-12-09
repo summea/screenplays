@@ -43,7 +43,7 @@ class ScreenplaysController < ApplicationController
 
     respond_to do |format|
       if @screenplay.save
-        format.html { redirect_to @screenplay, notice: 'Screenplay was successfully created.' }
+        format.html { redirect_to screenplays_url, notice: 'Screenplay was successfully created.' }
         format.json { render action: 'show', status: :created, location: @screenplay }
       else
         format.html { render action: 'new' }
@@ -57,7 +57,7 @@ class ScreenplaysController < ApplicationController
   def update
     respond_to do |format|
       if @screenplay.update(screenplay_params)
-        format.html { redirect_to @screenplay, notice: 'Screenplay was successfully updated.' }
+        format.html { redirect_to screenplays_url, notice: 'Screenplay was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -13,7 +13,7 @@
   <tbody>
     <% @characters.each do |character| %>
       <tr>
-        <td><%= character.name %></td>
+        <td><%= link_to character.name, edit_character_path(character) %></td>
         <td><%= character.alias %></td>
         <td><%= character.gender %></td>
         <td><%= link_to 'Show', character %> | 

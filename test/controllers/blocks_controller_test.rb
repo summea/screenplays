@@ -47,6 +47,7 @@ class BlocksControllerTest < ActionController::TestCase
 
   test "should destroy block" do
     sign_in User.first
+    @request.env['HTTP_REFERER'] = '/blocks'
     assert_difference('Block.count', -1) do
       delete :destroy, id: @block
     end
